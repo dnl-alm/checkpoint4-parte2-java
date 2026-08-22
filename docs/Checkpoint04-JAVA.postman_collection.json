@@ -1,0 +1,132 @@
+{
+  "info": {
+    "_postman_id": "afde8135-66ab-4dd8-8933-e1186b2f0a89",
+    "name": "Checkpoint04-JAVA",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53564630",
+    "_collection_link": "https://go.postman.co/collection/53564630-afde8135-66ab-4dd8-8933-e1186b2f0a89?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Listar todos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8082/mercado",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "mercado"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pesquisar por Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8082/mercado/5",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "mercado",
+            "5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Criar",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nome\": \"Água\",\r\n  \"tipo\": \"bebidas\",\r\n  \"setor\": \"A1\",\r\n  \"tamanho\": 5.0,\r\n  \"preco\": 6.0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8082/mercado",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "mercado"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Atualizar",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nome\": \"Água\",\r\n  \"tipo\": \"bebidas\",\r\n  \"setor\": \"A1\",\r\n  \"tamanho\": 7.0,\r\n  \"preco\": 6.0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8082/mercado/3",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "mercado",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Deletar",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "localhost:8082/mercado/3",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "mercado",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
