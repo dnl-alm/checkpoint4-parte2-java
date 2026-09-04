@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos · Mercado Express</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/mercado.css}">
+</head>
+<body>
+
+<div th:replace="~{fragments/layout :: cabecalho}"></div>
+
+<main class="container">
+    <div class="pagina-topo">
+        <h1>Produtos</h1>
+        <a th:href="@{/mercados/novo}" class="botao botao--primario">+ Novo produto</a>
+    </div>
+
+    <p class="vazio" th:if="${#lists.isEmpty(mercados)}">Nenhum produto cadastrado ainda.</p>
+
+    <table class="tabela" th:if="${not #lists.isEmpty(mercados)}">
+        <thead>
+        <tr>
+            <th>Nome</th><th>Tipo</th><th>Setor</th><th>Tamanho</th><th>Preço</th><th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="mercado : ${mercados}">
+            <td th:text="${mercado.nome()}"></td>
+            <td><span class="etiqueta" th:text="${mercado.tipo()}"></span></td>
+            <td th:text="${mercado.setor()} ?: '—'"></td>
+            <td th:text="${mercado.tamanho()} ?: '—'"></td>
+            <td><span class="tag-preco" th:text="${'R$ ' + #numbers.formatDecimal(mercado.preco(), 1, 2)}"></span></td>
+            <td class="tabela__acoes">
+                <a th:href="@{/mercados/{id}/editar(id=${mercado.id()})}" class="link-acao">Editar</a>
+                <form th:action="@{/mercados/{id}/excluir(id=${mercado.id()})}" method="post" class="form-inline">
+                    <button type="submit" class="link-acao link-acao--perigo"
+                            onclick="return confirm('Excluir este produto?')">Excluir</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+</body>
+</html>
