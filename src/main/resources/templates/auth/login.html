@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Entrar · Mercado Express</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/mercado.css}">
+</head>
+<body>
+
+<div th:replace="~{fragments/layout :: cabecalho}"></div>
+
+<main class="container container--estreito">
+    <h1>Entrar</h1>
+
+    <p class="aviso aviso--sucesso" th:if="${param.cadastroOk}">Cadastro realizado! Faça login para continuar.</p>
+    <p class="aviso aviso--erro" th:if="${param.error}">Usuário ou senha inválidos.</p>
+    <p class="aviso aviso--sucesso" th:if="${param.logout}">Você saiu da sua conta.</p>
+
+    <form class="ficha" th:action="@{/login}" method="post">
+        <div class="campo">
+            <label for="username">Usuário</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="campo">
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="ficha__acoes">
+            <button type="submit" class="botao botao--primario">Entrar</button>
+        </div>
+    </form>
+
+    <p class="link-secundario">Não tem conta? <a th:href="@{/cadastro}">Cadastre-se</a></p>
+</main>
+
+</body>
+</html>

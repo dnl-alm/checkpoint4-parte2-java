@@ -200,3 +200,34 @@ h1 {
     .campo-grupo { grid-template-columns: 1fr; }
     .tabela { display: block; overflow-x: auto; }
 }
+
+.cabecalho__nav { display: flex; align-items: center; gap: 1rem; }
+.cabecalho__usuario { color: rgba(255,255,255,0.85); font-size: 0.85rem; }
+.link-nav {
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+}
+.link-nav:hover { text-decoration: underline; }
+
+.aviso {
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+.aviso--erro { background: #FBEAE7; color: var(--cor-alerta); border: 1px solid #E8C4BE; }
+.aviso--sucesso { background: #EAF1E7; color: var(--cor-primaria); border: 1px solid #C9DBC3; }
+
+.link-secundario {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--cor-texto-suave);
+    text-align: center;
+}
+.link-secundario a { color: var(--cor-primaria); font-weight: 600; }

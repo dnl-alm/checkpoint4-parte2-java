@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar conta · Mercado Express</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/mercado.css}">
+</head>
+<body>
+
+<div th:replace="~{fragments/layout :: cabecalho}"></div>
+
+<main class="container container--estreito">
+    <h1>Criar conta</h1>
+
+    <p class="aviso aviso--erro" th:if="${erro}" th:text="${erro}"></p>
+    <p id="erro-js" class="aviso aviso--erro" style="display:none;"></p>
+
+    <form id="form-cadastro" class="ficha" th:action="@{/cadastro}" th:object="${cadastroForm}" method="post" novalidate>
+        <div class="campo">
+            <label for="username">Usuário</label>
+            <input type="text" id="username" th:field="*{username}" required minlength="3">
+        </div>
+        <div class="campo">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" th:field="*{senha}" required minlength="6">
+        </div>
+        <div class="campo">
+            <label for="confirmarSenha">Confirmar senha</label>
+            <input type="password" id="confirmarSenha" th:field="*{confirmarSenha}" required minlength="6">
+        </div>
+        <div class="ficha__acoes">
+            <button type="submit" class="botao botao--primario">Cadastrar</button>
+        </div>
+    </form>
+
+    <p class="link-secundario">Já tem conta? <a th:href="@{/login}">Entrar</a></p>
+
+    <script th:src="@{/js/cadastro.js}"></script>
+</main>
+
+</body>
+</html>
