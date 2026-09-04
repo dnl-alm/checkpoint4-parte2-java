@@ -4,6 +4,12 @@ Continuação do projeto **Mercado Express**. Nesta parte, foi adicionada uma **
 
 **IDE utilizada:** IntelliJ IDEA
 
+## Link Deploy
+`https://checkpoint4-parte2-java-mercado-express.onrender.com`
+
+**Link página WEB**  
+`https://checkpoint4-parte2-java-mercado-express.onrender.com/login`
+
 ## Sumário
 
 - [Relação com a Parte 1](#relação-com-a-parte-1)
